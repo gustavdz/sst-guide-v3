@@ -7,7 +7,7 @@ export const main = Util.handler(async (event) => {
   const params = {
     TableName: Resource.Notes.name,
     Key: {
-      userId: "123", // The id of the author
+      userId: Util.getCognitoUserId(event).userPoolUserId, // The id of the author
       noteId: event?.pathParameters?.id, // The id of the note from the path
     },
   };
