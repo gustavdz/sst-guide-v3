@@ -16,7 +16,14 @@ export module Util {
         });
       }
       // Return HTTP response
-      return { body, statusCode };
+      return {
+        body,
+        statusCode,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true,
+        },
+      };
     };
   }
   export function getCognitoUserId(event: APIGatewayProxyEvent) {
